@@ -1,0 +1,105 @@
+<div class="container habilidades">
+  <div class="titulo">
+    <h2>Habilidades</h2>
+    <div class="container">
+      <i class="bi bi-plus-square pointer"></i>
+      <i class="bi bi-pencil-square pointer"
+        (click)="btnEditarSkill = !btnEditarSkill"
+      ></i>
+    </div>
+  </div>
+  <div>
+    <div class="habilidad" *ngFor="let habilidad of skills; let i = index">
+      <h3 (click)="mensajee(i)">{{ habilidad.nombre }}</h3>
+      <div class="estrellas" *ngIf="habilidad.skill == 1">
+        <i class="bi bi-star-half"></i>
+        <i class="bi bi-star"></i>
+        <i class="bi bi-star"></i>
+        <i class="bi bi-star"></i>
+        <i class="bi bi-star"></i>
+        <i class="bi bi-pencil-square pointer" *ngIf="btnEditarSkill"></i>
+      </div>
+      <div class="estrellas" *ngIf="habilidad.skill == 2">
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star"></i>
+        <i class="bi bi-star"></i>
+        <i class="bi bi-star"></i>
+        <i class="bi bi-star"></i>
+        <i class="bi bi-pencil-square pointer" *ngIf="btnEditarSkill"></i>
+      </div>
+      <div class="estrellas" *ngIf="habilidad.skill == 3">
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-half"></i>
+        <i class="bi bi-star"></i>
+        <i class="bi bi-star"></i>
+        <i class="bi bi-star"></i>
+        <i class="bi bi-pencil-square pointer" *ngIf="btnEditarSkill"></i>
+      </div>
+      <div class="estrellas" *ngIf="habilidad.skill == 4">
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star"></i>
+        <i class="bi bi-star"></i>
+        <i class="bi bi-star"></i>
+        <i class="bi bi-pencil-square pointer" *ngIf="btnEditarSkill"></i>
+      </div>
+      <div>
+        <div class="estrellas" *ngIf="habilidad.skill == 5 && !modoEdicionSkill">
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-half"></i>
+          <i class="bi bi-star"></i>
+          <i class="bi bi-star"></i>
+          <i class="bi bi-pencil-square pointer" *ngIf="btnEditarSkill" (click)="modoEdicionSkill = !modoEdicionSkill; mensaje(i)"></i>
+        </div>
+        <form *ngIf="modoEdicionSkill" class="modo-edicion" #f="ngForm" (ngSubmit)="f.form.valid && editarHabilidad(habilidad, skill)">
+          <input type="number" required [(ngModel)]="skill" name="skill" min="1" max="10" />
+          <div>
+            <button type="submit"><i class="bi bi-check-circle pointer"></i></button>
+            <i class="bi bi-x-circle pointer" (click)="modoEdicionSkill = !modoEdicionSkill; habilidad.skill == 5"></i>
+          </div>
+        </form>
+      </div>
+      <div class="estrellas" *ngIf="habilidad.skill == 6">
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star"></i>
+        <i class="bi bi-star"></i>
+        <i class="bi bi-pencil-square pointer" *ngIf="btnEditarSkill"></i>
+      </div>
+      <div class="estrellas" *ngIf="habilidad.skill == 7">
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-half"></i>
+        <i class="bi bi-star"></i>
+        <i class="bi bi-pencil-square pointer" *ngIf="btnEditarSkill"></i>
+      </div>
+      <div class="estrellas" *ngIf="habilidad.skill == 8">
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star"></i>
+        <i class="bi bi-pencil-square pointer" *ngIf="btnEditarSkill"></i>
+      </div>
+      <div class="estrellas" *ngIf="habilidad.skill == 9">
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-half"></i>
+        <i class="bi bi-pencil-square pointer" *ngIf="btnEditarSkill"></i>
+      </div>
+      <div class="estrellas" *ngIf="habilidad.skill == 10">
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-pencil-square pointer" *ngIf="btnEditarSkill"></i>
+      </div>
+    </div>
+  </div>
+</div>
