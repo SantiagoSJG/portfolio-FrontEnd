@@ -9,5 +9,9 @@ import { Skill } from './skill.model';
 export class AppComponent {
   title = 'front-end';
 
-  skills: Skill[] = []
+  skills: Skill[] = [];
+
+  decirHola() {
+    alert("Hola");
+  }
 }
